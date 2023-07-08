@@ -1,4 +1,4 @@
-mystr="Hi Hi Hi hELLO PYThON!"
+mystr="Hi, Hello This Is Python!"
 """print(mystr)
 print(mystr[0]) #straing are Array(list)
 print(mystr[-1])
@@ -21,4 +21,16 @@ print(mystr)
 #print(mystr.casefold())
 #print(mystr.count('h'))
 #print(mystr.count("Hi"))
-print(mystr.endswith('!'))
+#print(mystr.startswith("Hello"))
+#print(mystr.endswith("!"))
+
+#print(mystr.find('Python'))
+#print(mystr.index('Python'))
+
+#print(mystr.isalpha())
+#print(mystr.isdigit())
+#print(mystr.isalnum())
+#print(mystr.islower())
+#print(mystr.isupper())
+print(mystr.istitle())
+#print(mystr.title())
