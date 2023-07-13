@@ -1,0 +1,1 @@
+# WAP to print table (user input) using while and for loop. (eg: Table of 5)

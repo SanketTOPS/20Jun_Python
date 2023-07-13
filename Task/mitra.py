@@ -1,0 +1,1 @@
+# WAP to print 8 string's methods.
