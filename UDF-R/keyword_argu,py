@@ -1,0 +1,13 @@
+#default argument value
+def getdata(id,name,sub='Python'):
+    print("ID:",id)
+    print("Name:",name)
+    print("Subject:",sub)
+
+#getdata(23,'Ashok') #positional arguments
+
+#getdata(id=23,name='Sanket') #keyword arguments
+
+
+getdata(sub='JAVA',id=4,name='Nirav')
+
