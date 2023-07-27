@@ -6,4 +6,4 @@ def getdata(*data):
 
 #getdata(1,'Sanket','Python','Rajkot') #tuple
 
-getdata(1,'Sanket','Python')
+getdata([1,'Sanket','Python'])
