@@ -1,5 +1,5 @@
 import tkinter
-from tkinter import ttk
+from tkinter import ttk,messagebox
 
 screen=tkinter.Tk()
 
@@ -37,7 +37,18 @@ city=['Ahmedabad','Rajkot','Baroda','Jamnagar','Junagadh']
 ttk.Combobox(values=city).grid(row=7,column=0,sticky='W')
 
 def btnclick():
-    print("Button Clickd")
+    #print("Button Clickd")
+    #messagebox.askokcancel("Download!","Do you want to continue?")
+    #messagebox.askquestion("Download!","Do you want to continue?")
+    #messagebox.askretrycancel("Download!","Do you want to continue?")
+    #messagebox.askyesno("Download!","Do you want to continue?")
+    #messagebox.askyesnocancel("Download!","Do you want to continue?")
+
+    #messagebox.showerror("Error!","Somethingwent wrong...Try again!")
+    #messagebox.showinfo("Success","Your data has been submitted!")
+    #messagebox.showwarning("Warning","Your disk is full!")
+    print(f"Firstname:{txt_fnm.get()}")
+    print(f"Lastname:{txt_lnm.get()}")
 
 tkinter.Button(text="Submit",font='Calibri 15 bold',command=btnclick).place(x=160,y=300)
 
