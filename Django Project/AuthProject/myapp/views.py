@@ -9,10 +9,13 @@ def index(request):
         unm=request.POST['username']
         pas=request.POST['password']
 
+        fnm=usersignup.objects.get(username=unm)
+        print("Name:",fnm.firstname)
         user=usersignup.objects.filter(username=unm,password=pas)
         if user: #true
             print("Login Successfull!")
             request.session["user"]=unm #create a session
+            request.session["name"]=fnm.firstname+fnm.lastname #create a session for firstname
             return redirect('home')
         else:
             print("Error!Login Fail...")
@@ -21,7 +24,7 @@ def index(request):
 def signup(request):
     if request.method=="POST":
         newuser=signupForm(request.POST)
-        if newuser.is_valid():
+        if newuser.is_valid():                                                                                                               
             newuser.save()
             print("Signup Successfully!")
             return redirect('/')
@@ -30,8 +33,9 @@ def signup(request):
     return render(request,'signup.html')
 
 def home(request):
-    user=request.session.get('user')
-    return render(request,'home.html',{'user':user})
+    #user=request.session.get('user')
+    name=request.session.get('name')
+    return render(request,'home.html',{'name':name})
 
 
 def userlogout(request):
