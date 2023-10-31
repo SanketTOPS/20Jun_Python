@@ -3,6 +3,7 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -37,6 +38,13 @@ def index(request):
 #@login_required(login_url='/')
 def notes(request):
     user=request.session.get('user')
+    if request.method=='POST':
+        newnotes=notesForm(request.POST,request.FILES)
+        if newnotes.is_valid():
+            newnotes.save()
+            print("Your notes has been submitted!")
+        else:
+            print(newnotes.errors)
     return render(request,'notes.html',{'user':user})
 
 
@@ -59,6 +67,16 @@ def about(request):
     return render(request,'about.html')
 
 def contact(request):
+    if request.method=='POST':
+        newcontact=contactForm(request.POST)
+        if newcontact.is_valid():
+            newcontact.save()
+            
+            #Email Send
+            send_mail(subject="Thank You!",message=f"Dear User\n\nThank you for connecting us!\nWe will contact you soon!\n\nThanks & Regards\n+919724799469 | sanket@tops-int.com",from_email="06octdm@gmail.com",recipient_list=[request.POST['email']])
+            print("Your form has been saved!")
+        else:
+            print(newcontact.errors)
     return render(request,'contact.html')
 
 def userlogout(request):
