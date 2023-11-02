@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+import requests
+import random
+
 
 # Create your views here.
 def index(request):
@@ -75,6 +78,16 @@ def contact(request):
             #Email Send
             send_mail(subject="Thank You!",message=f"Dear User\n\nThank you for connecting us!\nWe will contact you soon!\n\nThanks & Regards\n+919724799469 | sanket@tops-int.com",from_email="06octdm@gmail.com",recipient_list=[request.POST['email']])
             print("Your form has been saved!")
+
+            #SMS Send
+            otp=random.randint(1111,9999)
+            url = "https://www.fast2sms.com/dev/bulkV2"
+            querystring = {"authorization":"KEodGZf5czOn3eCxJPkWAFHQUYtS86Rbmrv1MyuViag4hs7N2DujvzKSw5MN9mRryb3LC4DsIHiWph78","variables_values":f"{otp}","route":"otp","numbers":f"{request.POST['phone']}"}
+            headers = {
+                'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
         else:
             print(newcontact.errors)
     return render(request,'contact.html')
