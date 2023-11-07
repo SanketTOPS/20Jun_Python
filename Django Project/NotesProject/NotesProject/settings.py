@@ -39,7 +39,27 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+
+    #django-allauth
+    'django.contrib.sites', # must
+    'allauth', # must
+    'allauth.account', # must
+    'allauth.socialaccount', # must
+    'allauth.socialaccount.providers.google', # new
 ]
+
+#django-allauth
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+LOGIN_REDIRECT_URL = '/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'NotesProject.urls'

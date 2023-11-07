@@ -119,9 +119,10 @@
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
                         <div class="d-grid gap-2">
+                            {% load socialaccount %}
                             <button type="submit" name="signin" value="signin" class="btn btn-primary">Login</button>
-                            <button type="submit" class="btn btn-primary">Login with Facebook</button>
-                            <button type="submit" class="btn btn-danger">Login with Google</button>
+                            <a class="btn btn-primary" href="">Login with Facebook</a>
+                            <a class="btn btn-danger" href="{% provider_login_url 'google'%}?next=/">Login with Google</a>
                         </div>
                     </form>
                 </div>
