@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account', # must
     'allauth.socialaccount', # must
     'allauth.socialaccount.providers.google', # new
+    'allauth.socialaccount.providers.facebook', 
 ]
 
 #django-allauth
