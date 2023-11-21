@@ -123,7 +123,6 @@
                             
                             <button type="submit" name="signin" value="signin" class="btn btn-primary">Login</button>
                             {% load socialaccount %}
-                            {% providers_media_js %}
                             <a class="btn btn-primary" href="{% provider_login_url 'facebook'%}">Login with Facebook</a>
                             <a class="btn btn-danger" href="{% provider_login_url 'google'%}?next=/">Login with Google</a>
                         </div>
